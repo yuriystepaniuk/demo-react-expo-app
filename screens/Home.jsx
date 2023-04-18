@@ -2,7 +2,6 @@ import { StatusBar } from "expo-status-bar";
 import {
   View,
   Alert,
-  Text,
   FlatList,
   RefreshControl,
   TouchableOpacity,
@@ -13,7 +12,7 @@ import { useEffect, useState } from "react";
 import styled from "styled-components/native";
 import Loading from "../components/Loading";
 
-export const Home = () => {
+export const Home = ({navigation}) => {
   const [items, setItems] = useState();
   const [isLoading, setIsLoading] = useState(true);
 
@@ -49,7 +48,7 @@ export const Home = () => {
         }
         data={items}
         renderItem={({ item }) => (
-          <TouchableOpacity>
+          <TouchableOpacity onPress={() => navigation.navigate('Posts')}>
             <Post title={item.title} createdAt="20.03.2022" imgUrl={item.url} />
           </TouchableOpacity>
         )}

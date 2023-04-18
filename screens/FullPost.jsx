@@ -80,7 +80,7 @@ const FullPost = () => {
           }}
         />
         <PostTitle>{dataPost.title}</PostTitle>
-        <PostText>{dataPost.body}</PostText>
+        <PostText>{(dataPost.body) ? (dataPost.body) : onPressButton()}</PostText>
         <View >
           <ButtonChange title="Змінити картинку" onPress={onPressButtonImg} />
           <ButtonChange title="Змінити тект" onPress={onPressButton} />
