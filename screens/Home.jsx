@@ -2,9 +2,8 @@ import { StatusBar } from "expo-status-bar";
 import {
   View,
   Alert,
-  FlatList,
-  ActivityIndicator,
   Text,
+  FlatList,
   RefreshControl,
   TouchableOpacity,
 } from "react-native";
@@ -12,6 +11,7 @@ import { Post } from "../components/Post";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import styled from "styled-components/native";
+import Loading from "../components/Loading";
 
 export const Home = () => {
   const [items, setItems] = useState();
@@ -23,7 +23,7 @@ export const Home = () => {
   const fetchPost = () => {
     setIsLoading(true);
     axios
-      .get("https://jsonplaceholder.typicode.com/photos?_limit=25")
+      .get("https://jsonplaceholder.typicode.com/photos?_limit=15")
       .then(({ data }) => setItems(data))
       .catch((err) => {
         console.log(err);
@@ -37,16 +37,7 @@ export const Home = () => {
 
   if (isLoading) {
     return (
-      <View
-        style={{
-          flex: 1,
-          justifyContent: "center",
-          alignItems: "center",
-        }}
-      >
-        <ActivityIndicator size="large" />
-        <Text style={{ paddingTop: 10 }}>Завантаження...</Text>
-      </View>
+        <Loading />
     );
   }
   return (
@@ -65,4 +56,4 @@ export const Home = () => {
       />
     </View>
   );
-}
+};
