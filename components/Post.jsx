@@ -17,7 +17,7 @@ const PostImage = styled.Image`
   height: 70px;
   border-radius: 12px;
   border-radius: 40px;
-  margin-right: 10px;                
+  margin-right: 10px;
 `;
 
 const PostTitle = styled.Text`
@@ -37,7 +37,7 @@ const PostDetails = styled.View`
   flex-direction: column;
 `;
 
-export const Post = ({title,createdAt, imgUrl}) => {
+export const Post = ({ title, createdAt, imgUrl }) => {
   return (
     <PostView>
       <PostImage
